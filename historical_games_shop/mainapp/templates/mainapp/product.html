@@ -1,131 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Historical Games</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,300&display=swap"
-          rel="stylesheet">
-    <link rel="stylesheet" href="/static/bootstrap.css">
-    <link href="/static/style.css" rel="stylesheet">
-</head>
-<body class="page page-product">
-<div class="header-page">
-    <div class="header">
-        <div class="header-back"></div>
-        <div class="container">
-            <a href="#" class="logo">Historical<br><span>Games</span></a>
-            <a href="tel:+1234567890" class="phone">+123 456 7890</a>
-            <a href="mailto:info@example.com" class="email">info@example.com</a>
-            <div class="search">
-                <form action="#">
-                    <input type="text" placeholder="Search">
-                    <input type="submit">
-                </form>
-            </div>
-        </div>
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block header %}
+    <div class="header-page">
+        {% include 'mainapp/includes/inc_header.html' %}
+        {% include 'mainapp/includes/inc_main_menu.html' %}
     </div>
-    <ul class="menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="/#about">About</a></li>
-        <li><a href="/#services">Services</a></li>
-        <li><a href="/#gallery">Gallery</a></li>
-        <li><a href="/#news">News</a></li>
-        <li><a href="/#team">Team</a></li>
-        <li><a href="/contacts/">Contact Us</a></li>
-    </ul>
-</div>
-<div class="product-main">
-    <div class="container clearfix">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <img src="/static/img/product-main1.jpg" alt="">
-                <div class="prod-thumbs">
-                    <a class="active" href="#"><img src="img/product-thumb1.jpg" alt=""></a>
-                    <a href="#"><img src="img/product-thumb2.jpg" alt=""></a>
-                    <a href="#"><img src="img/product-thumb3.jpg" alt=""></a>
-                    <a href="#"><img src="img/product-thumb4.jpg" alt=""></a>
+{% endblock %}
+{% block content %}
+    <div class="product-main">
+        <div class="container clearfix">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <img src="/static/img/product-main1.jpg" alt="">
+                    <div class="prod-thumbs">
+                        <a class="active" href="#"><img src="img/product-thumb1.jpg" alt=""></a>
+                        <a href="#"><img src="img/product-thumb2.jpg" alt=""></a>
+                        <a href="#"><img src="img/product-thumb3.jpg" alt=""></a>
+                        <a href="#"><img src="img/product-thumb4.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <h1>Assasin’s Creed:<br><span>Rogue</span></h1>
+                    <div class="product-price">$29.99</div>
+                    <a class="btn" href="#">Buy</a>
+                    <p>The plot is set in a fictional history of real world events and follows the centuries-old struggle
+                        between the Assassins, who fight for peace with free will, and the Templars, who desire peace
+                        through control. The story is set in the mid-18th century during the Seven Years' War, and follows
+                        Shay Patrick Cormac, an Assassin-turned-Templar who hunts down former members of his Brotherhood
+                        after being betrayed by them. Gameplay in Rogue is very similar to that of Black Flag with a mixture
+                        of ship-based naval exploration and third-person land-based exploration with some new features.</p>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <h1>Assasin’s Creed:<br><span>Rogue</span></h1>
-                <div class="product-price">$29.99</div>
-                <a class="btn" href="#">Buy</a>
-                <p>The plot is set in a fictional history of real world events and follows the centuries-old struggle
-                    between the Assassins, who fight for peace with free will, and the Templars, who desire peace
-                    through control. The story is set in the mid-18th century during the Seven Years' War, and follows
-                    Shay Patrick Cormac, an Assassin-turned-Templar who hunts down former members of his Brotherhood
-                    after being betrayed by them. Gameplay in Rogue is very similar to that of Black Flag with a mixture
-                    of ship-based naval exploration and third-person land-based exploration with some new features.</p>
+        </div>
+    </div>
+    <div class="gallery">
+        <h2>Similar games</h2>
+        <div class="gallery-list container">
+            <div class="row">
+                <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <img src="/static/img/gallery5.jpg" alt="">
+                    <div class="gallery-item-title"><span>Battlefield 1</span></div>
+                    <a class="btn" href="#">Buy</a>
+                </div>
+                <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <img src="/static/img/gallery6.jpg" alt="">
+                    <div class="gallery-item-title"><span>star wars:</span><br>Battlefront II</div>
+                    <a class="btn" href="#">Buy</a>
+                </div>
+                <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <img src="/static/img/gallery7.jpg" alt="">
+                    <div class="gallery-item-title"><span>BATTLEFIELD 4</span></div>
+                    <a class="btn" href="#">Buy</a>
+                </div>
+                <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <img src="/static/img/gallery8.jpg" alt="">
+                    <div class="gallery-item-title"><span>world of tanks</span></div>
+                    <a class="btn" href="#">Buy</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="gallery">
-    <h2>Similar games</h2>
-    <div class="gallery-list container">
-        <div class="row">
-            <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <img src="/static/img/gallery5.jpg" alt="">
-                <div class="gallery-item-title"><span>Battlefield 1</span></div>
-                <a class="btn" href="#">Buy</a>
-            </div>
-            <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <img src="/static/img/gallery6.jpg" alt="">
-                <div class="gallery-item-title"><span>star wars:</span><br>Battlefront II</div>
-                <a class="btn" href="#">Buy</a>
-            </div>
-            <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <img src="/static/img/gallery7.jpg" alt="">
-                <div class="gallery-item-title"><span>BATTLEFIELD 4</span></div>
-                <a class="btn" href="#">Buy</a>
-            </div>
-            <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <img src="/static/img/gallery8.jpg" alt="">
-                <div class="gallery-item-title"><span>world of tanks</span></div>
-                <a class="btn" href="#">Buy</a>
-            </div>
-        </div>
-    </div>
-</div>
 
-
-<div class="contact">
-    <div class="container clearfix">
-        <h2>Contact Us</h2>
-        <div class="w50">
-            <h3>Get in touch with us</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sheets
-                containing Lorem Ipsum passages sed do, At vero eos et accusamus et
-                iusto odio digs qui blanditiis</p>
-            <p>Leningradsky AVE 39, BLDG 79<br>
-                MOSCOW 125167, Russia</p>
-            <p>Telephone : +00 111 222 3333</p>
-            <p>FAX : +1 888 888 4444</p>
-            <p>Email : <a href="mailto:mail@example.com">mail@example.com</a></p>
-        </div>
-        <div class="w50">
-            <form action="#">
-                <input type="text" placeholder="Name"><br>
-                <input class="email" type="text" placeholder="Email"><br>
-                <textarea placeholder="Message"></textarea><br>
-                <input class="btn" type="submit" value="Submit">
-            </form>
-        </div>
-    </div>
-</div>
-<div class="map">
-    <div class="container clearfix">
-        <h2>Route Map</h2>
-        <script async
-                src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=929LFVnJCgep9n0vtxFEkYl8KkxiR49q&amp;width=100%25&amp;height=298&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>
-    </div>
-</div>
-<div class="footer">
-    &copy; 2017 Историческе Игры. Все права защищены
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="/static/bootstrap.js"></script>
-</body>
-</html>
+    {% include 'mainapp/includes/inc_contact.html' %}
+    {% include 'mainapp/includes/inc_map.html' %}
+{% endblock %}

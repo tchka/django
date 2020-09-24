@@ -1,0 +1,9 @@
+    <ul class="menu">
+        <li><a href="{% url 'main' %}" {% if request.resolver_match.url_name == 'main' %}class="active"{% endif %} >Home</a></li>
+        <li><a href="{% url 'main' %}#about">About</a></li>
+        <li><a href="{% url 'main' %}#services">Services</a></li>
+        <li><a href="{% url 'main' %}#gallery">Gallery</a></li>
+        <li><a href="{% url 'main' %}#news">News</a></li>
+        <li><a href="{% url 'main' %}#team">Team</a></li>
+        <li><a href="{% url 'contacts' %}" {% if request.resolver_match.url_name == 'contacts' %}class="active"{% endif %} >Contact Us</a></li>
+    </ul>
