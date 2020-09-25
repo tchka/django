@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.conf import settings
+import os
+import json
 
 def main(request):
     main = True
@@ -36,19 +39,26 @@ def main(request):
         },
 
     ]
+    with open(os.path.join(settings.BASE_DIR, 'contacts.json')) as contacts_json_file:
+        contacts = json.load(contacts_json_file)
+
     content = {
         'main': main,
         'title': title,
         'services': services,
+        'contacts': contacts,
     }
     return render(request, 'mainapp/index.html', content)
 
 def catalog(request):
     main = False
     title = 'Catalog Historical games'
+    with open(os.path.join(settings.BASE_DIR, 'contacts.json')) as contacts_json_file:
+        contacts = json.load(contacts_json_file)
     content = {
         'main': main,
         'title': title,
+        'contacts': contacts,
     }
     return render(request, 'mainapp/catalog.html', content)
 
@@ -64,8 +74,12 @@ def product(request):
 def contacts(request):
     main = False
     title = 'Contacts Historical games'
+    with open(os.path.join(settings.BASE_DIR, 'contacts.json')) as contacts_json_file:
+        contacts = json.load(contacts_json_file)
+
     content = {
         'main': main,
         'title': title,
+        'contacts': contacts,
     }
     return render(request, 'mainapp/contacts.html', content)

@@ -6,11 +6,10 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sheets
                 containing Lorem Ipsum passages sed do, At vero eos et accusamus et
                 iusto odio digs qui blanditiis</p>
-            <p>Leningradsky AVE 39, BLDG 79<br>
-                MOSCOW 125167, Russia</p>
-            <p>Telephone : +00 111 222 3333</p>
-            <p>FAX : +1 888 888 4444</p>
-            <p>Email : <a href="mailto:mail@example.com">mail@example.com</a></p>
+            <p>{{contacts.address}}<br>{{contacts.address_line2}}</p>
+            <p>Telephone : {{contacts.phone}}</p>
+            <p>FAX : {{contacts.fax}}</p>
+            <p>Email : <a href="mailto:{{contacts.email}}">{{contacts.email}}</a></p>
         </div>
         <div class="w50">
             <form action="#">
