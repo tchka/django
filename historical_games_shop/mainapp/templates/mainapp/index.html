@@ -67,32 +67,22 @@
             </div>
         </div>
     </div>
+
     <div class="gallery" id="gallery">
         <h2>Our Gallery</h2>
         <div class="catalog_link"><a href="{% url 'catalog' %}">>></a></div>
         <div class="gallery-list container">
-            <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <img src="{% static 'img/gallery1.jpg' %}" alt="">
-                <div class="gallery-item-title"><span>Assasin’s Creed:</span> Rogue</div>
-                <a class="btn" href="#">Buy</a>
-            </div>
-            <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <img src="{% static 'img/gallery2.jpg' %}" alt="">
-                <div class="gallery-item-title"><span>Tomb Raider</span></div>
-                <a class="btn" href="#">Buy</a>
-            </div>
-            <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <img src="{% static 'img/gallery3.jpg' %}" alt="">
-                <div class="gallery-item-title"><span>Ryse:</span> Son Of Rome</div>
-                <a class="btn" href="#">Buy</a>
-            </div>
-            <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <img src="{% static 'img/gallery4.jpg' %}" alt="">
-                <div class="gallery-item-title"><span>World Of Warcraft:</span><br>Wrath Of The Linch King</div>
-                <a class="btn" href="#">Buy</a>
-            </div>
+            {% for product in products %}
+                <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <img src="/media/{{ product.image }}" alt="{{ product.short_desc }}">
+                    <div class="gallery-item-title">{{ product.name }}</div>
+                    <a class="btn" href="{% url 'products:product' product.pk %}">Buy</a>
+                </div>
+            {% endfor %}
         </div>
     </div>
+
+
     <div class="slider">
         <div class="container">
             <h2>Testimonial</h2>
