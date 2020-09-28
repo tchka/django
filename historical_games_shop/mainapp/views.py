@@ -2,10 +2,13 @@ from django.shortcuts import render
 from django.conf import settings
 import os
 import json
+from mainapp.models import Product
+
 
 def main(request):
     main = True
     title = 'Historical games'
+    products = Product.objects.all()
     services = [
         {
             'name': 'Repreh Qui In Ea Voluptate',
@@ -45,6 +48,7 @@ def main(request):
     content = {
         'main': main,
         'title': title,
+        'products': products,
         'services': services,
         'contacts': contacts,
     }
@@ -62,7 +66,7 @@ def catalog(request):
     }
     return render(request, 'mainapp/catalog.html', content)
 
-def product(request):
+def product(request, pk=None):
     main = False
     title = 'Product Historical games'
     content = {
