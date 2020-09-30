@@ -1,0 +1,90 @@
+[
+  {
+    "name": "TOMB RAIDER",
+    "image": "products/gallery1.jpg",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in venus.",
+    "short_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+    "price": 34,
+    "quantity": 13
+  },
+  {
+    "name": "ASSASIN’S CREED: Rogue",
+    "image": "products/gallery2.jpg",
+    "description": "Excepteur sint occaecat cupidatat, dolore eu fugiat nulla pariatur non proident. Dolorem sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et fugiat nulla pariatur dolore magna aliqua. Irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "short_description": "Excepteur sint occaecat cupidatat, dolore eu fugiat nulla pariatur non proident.",
+    "price": 117,
+    "quantity": 76
+  },
+  {
+    "name": "RYSE: Son Of Rome",
+    "image": "products/gallery3.jpg",
+    "description": "Nam tempor utamur gubergren no. Pri quas audiam virtute ut, case utamur fuisset eam ut, dolor in reprehenderit iisque accommodare an eam. Reque blandit qui eu, cu vix nonumy volumus. Intellegam fugiat nulla pariatur id usu, vide oporteat vix eu, id illud principes has.",
+    "short_description": "Nam tempor utamur gubergren no. Pri quas audiam virtute ut, case utamur fuisset eam ut.",
+    "price": 96,
+    "quantity": 24
+  },
+  {
+    "name": "WORLD OF WARCRAFT: Wrath Of The Linch King",
+    "image": "products/gallery4.jpg",
+    "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "short_description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "price": 54,
+    "quantity": 43
+  },
+  {
+    "name": "BATTLEFIELD 1",
+    "image": "products/gallery5.jpg",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum. In culpa qui officia deserunt mollit anim id est laborum.",
+    "short_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+    "price": 34,
+    "quantity": 13
+  },
+  {
+    "name": "STAR WARS: Battlefront II",
+    "image": "products/gallery6.jpg",
+    "description": "Excepteur sint occaecat cupidatat, dolore eu fugiat nulla pariatur non proident. Dolorem sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et fugiat nulla pariatur dolore magna aliqua. Irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "short_description": "Excepteur sint occaecat cupidatat, dolore eu fugiat nulla pariatur non proident.",
+    "price": 117,
+    "quantity": 76
+  },
+  {
+    "name": "BATTLEFIELD 4",
+    "image": "products/gallery7.jpg",
+    "description": "Nam tempor utamur gubergren no. Pri quas audiam virtute ut, case utamur fuisset eam ut, dolor in reprehenderit iisque accommodare an eam. Reque blandit qui eu, cu vix nonumy volumus. Intellegam fugiat nulla pariatur id usu, vide oporteat vix eu, id illud principes has.",
+    "short_description": "Nam tempor utamur gubergren no. Pri quas audiam virtute ut, case utamur fuisset eam ut.",
+    "price": 96,
+    "quantity": 24
+  },
+  {
+    "name": "WORLD OF TANKS",
+    "image": "products/gallery8.jpg",
+    "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "short_description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "price": 54,
+    "quantity": 43
+  },
+  {
+    "name": "FOR HONOR",
+    "image": "products/gallery9.jpg",
+    "description": "Nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "short_description": "Nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "price": 88,
+    "quantity": 17
+  },
+  {
+    "name": "WORLD OF WARSHIPS",
+    "image": "products/gallery10.jpg",
+    "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Elit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat. Reprehenderit in voluptate, esse cillum dolor velit esse cillum.",
+    "short_description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.",
+    "price": 67,
+    "quantity": 100
+  },
+  {
+    "name": "CALL OF DUTY: Infinite Warface",
+    "image": "products/gallery11.jpg",
+    "description": "Reprehenderit in voluptate velit esse cillum dolore sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in venus.",
+    "short_description": "Reprehenderit in voluptate velit esse cillum dolore sint occaecat cupidatat non proident.",
+    "price": 64,
+    "quantity": 37
+  }
+]
