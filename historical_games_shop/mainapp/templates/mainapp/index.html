@@ -70,7 +70,10 @@
 
     <div class="gallery" id="gallery">
         <h2>Our Gallery</h2>
-        <div class="catalog_link"><a href="{% url 'catalog' %}">>></a></div>
+
+        <div class="links clearfix">
+            {% include 'mainapp/includes/inc_categories_menu.html' %}
+        </div>
         <div class="gallery-list container">
             {% for product in products %}
                 <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
