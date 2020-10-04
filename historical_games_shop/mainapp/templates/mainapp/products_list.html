@@ -1,0 +1,54 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block header %}
+    <div class="header-page">
+        {% include 'mainapp/includes/inc_header.html' %}
+        {% include 'mainapp/includes/inc_main_menu.html' %}
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="links clearfix">
+        {% include 'mainapp/includes/inc_categories_menu.html' %}
+    </div>
+    <div class="gallery">
+
+        <h2>{{ category.name|title }}</h2>
+        <div class="gallery-list container">
+            <div class="row">
+                {% for product in products %}
+                    <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <img src="/media/{{ product.image }}" alt="">
+                        <div class="gallery-item-title"><a href="#">{{ product.name }}</a></div>
+                        <p>{{ product.description }}</p>
+                        <a class="btn" href="{% url 'basket:add' product.pk %}">Buy</a>
+                     </div>
+                {% endfor %}
+            </div>
+            <a href="#" class="gallery-more">Show more games</a>
+        </div>
+    </div>
+
+    <div class="products">
+        <div class="container clearfix">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <p>discount</p>
+                    <div class="product-title">CALL OF DUTY:<br><span>Modern Warfare 3</span></div>
+                    <div class="product-price">$14.44 <span>/ <span class="line-through">$28.50</span></span></div>
+                    <a class="btn" href="#">Buy</a>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <p>discount</p>
+                    <div class="product-title">MEDAL OF HONOR</div>
+                    <div class="product-price">$15.96 <span>/ <span class="line-through">$29.99</span></span></div>
+                    <a class="btn" href="#">Buy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% include 'mainapp/includes/inc_contact.html' %}
+    {% include 'mainapp/includes/inc_map.html' %}
+{% endblock %}
