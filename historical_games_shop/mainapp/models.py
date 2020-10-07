@@ -1,7 +1,17 @@
 from django.db import models
 
+class ProductCategory(models.Model):
+    name = models.CharField(max_length=64, unique=True, verbose_name='Название категории')
+    description = models.TextField(blank=True, verbose_name='Описание категории')
+    class Meta:
+        verbose_name = 'категория'
+        verbose_name_plural = 'категории'
+
+    def __str__(self):
+        return self.name
 
 class Product(models.Model):
+    category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
     name = models.CharField(max_length=64, unique=True, verbose_name='Имя')
     image = models.ImageField(upload_to='product_images', blank=True)
     description = models.TextField(blank=True, verbose_name='Описание')
@@ -14,7 +24,8 @@ class Product(models.Model):
         verbose_name_plural = 'товары'
 
     def __str__(self):
-        return self.name
+        return f'{self.name} ({self.category.name})'
+        # return f'{self.name}'
 
 
 class Contact(models.Model):

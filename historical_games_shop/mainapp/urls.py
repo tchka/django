@@ -23,4 +23,6 @@ app_name = 'mainapp'
 urlpatterns = [
    path('', mainapp.catalog, name='catalog'),
    path('<int:pk>/', mainapp.product, name='product'),
+   path('category/', mainapp.catalog, name='catalog'),
+   path('category/<int:pk>/', mainapp.category_products, name='category_products'),
 ]

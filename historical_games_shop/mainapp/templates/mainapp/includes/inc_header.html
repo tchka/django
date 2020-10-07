@@ -13,6 +13,9 @@
         <div class="user-menu">
             {% if user.is_authenticated %}
                 <a href="{% url 'auth:edit' %}" class="lk"></a>
+                <a href="{% url 'basket:basket' %}" class="basket{% if request.resolver_match.url_name == 'main' %} active{% endif %}">
+                     {% if basket %}{{basket_num}}{% endif %}
+                </a>
                 <a href="{% url 'auth:logout' %}">выйти</a>
             {% else %}
                  <a href="{% url 'auth:login' %}">войти</a>
