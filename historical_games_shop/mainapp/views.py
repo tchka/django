@@ -8,7 +8,7 @@ from mainapp.models import Product
 def main(request):
     main = True
     title = 'Historical games'
-    products = Product.objects.all()
+    products = Product.objects.all()[:4]
     services = [
         {
             'name': 'Repreh Qui In Ea Voluptate',

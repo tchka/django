@@ -15,3 +15,14 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=64, unique=True, verbose_name='Имя')
+    address = models.CharField(max_length=128, blank=True, verbose_name='Адрес')
+    phone = models.CharField(max_length=64, blank=True, verbose_name='Телефон')
+    fax = models.CharField(max_length=64, blank=True, verbose_name='Факс')
+    email = models.CharField(max_length=64, blank=True, verbose_name='E-mail')
+
+    def __str__(self):
+        return f'Contacts {self.name}'
