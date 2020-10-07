@@ -103,6 +103,9 @@ def category_products(request, pk=None):
         basket = Basket.objects.filter(user=request.user)
         basket_num = sum(list(Basket.objects.filter(user=request.user).values_list('quantity', flat=True)))
 
+
+
+
     content = {
         'main': main,
         'title': title,
