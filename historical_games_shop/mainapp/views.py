@@ -3,20 +3,39 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 import os
 import json
+import random
 from mainapp.models import Product
 from mainapp.models import ProductCategory
 from basketapp.models import Basket
 
 
+def get_basket(user):
+    if user.is_authenticated:
+        return Basket.objects.filter(user=user)
+    else:
+        return []
+
+
+def get_hot_product():
+    products = Product.objects.all()
+
+    return random.sample(list(products), 1)[0]
+
+
+def get_same_products(hot_product):
+    same_products = Product.objects.filter(category=hot_product.category). \
+                        exclude(pk=hot_product.pk)[:3]
+
+    return same_products
+
+
 def main(request):
     main = True
     title = 'Historical games'
-    products = Product.objects.all()[:4]
+    hot_product = get_hot_product()
+    same_products = get_same_products(hot_product)
+
     links_menu = ProductCategory.objects.all()
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
-        basket_num = sum(list(Basket.objects.filter(user=request.user).values_list('quantity', flat=True)))
 
     services = [
         {
@@ -57,12 +76,12 @@ def main(request):
     content = {
         'main': main,
         'title': title,
-        'products': products,
+        'hot_product': hot_product,
+        'same_products': same_products,
         'links_menu': links_menu,
         'services': services,
         'contacts': contacts,
-        'basket': basket,
-        'basket_num': basket_num,
+        'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/index.html', content)
 
@@ -70,18 +89,13 @@ def main(request):
 def catalog(request):
     main = False
     title = 'Catalog Historical games'
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
-        basket_num = sum(list(Basket.objects.filter(user=request.user).values_list('quantity', flat=True)))
     with open(os.path.join(settings.BASE_DIR, 'contacts.json')) as contacts_json_file:
         contacts = json.load(contacts_json_file)
     content = {
         'main': main,
         'title': title,
         'contacts': contacts,
-        'basket': basket,
-        'basket_num': basket_num,
+        'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/catalog.html', content)
 
@@ -98,22 +112,13 @@ def category_products(request, pk=None):
             category = get_object_or_404(ProductCategory, pk=pk)
             products = Product.objects.filter(category__pk=pk).order_by('price')
 
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
-        basket_num = sum(list(Basket.objects.filter(user=request.user).values_list('quantity', flat=True)))
-
-
-
-
     content = {
         'main': main,
         'title': title,
         'links_menu': links_menu,
         'category': category,
         'products': products,
-        'basket': basket,
-        'basket_num': basket_num,
+        'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/products_list.html', content)
 
@@ -121,16 +126,13 @@ def category_products(request, pk=None):
 def product(request, pk=None):
     main = False
     title = 'Product Historical games'
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
-        basket_num = sum(list(Basket.objects.filter(user=request.user).values_list('quantity', flat=True)))
+    product = get_object_or_404(Product, pk=pk)
 
     content = {
         'main': main,
         'title': title,
-        'basket': basket,
-        'basket_num': basket_num,
+        'product': product,
+        'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/product.html', content)
 
@@ -138,11 +140,6 @@ def product(request, pk=None):
 def contacts(request):
     main = False
     title = 'Contacts Historical games'
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
-        basket_num = sum(list(Basket.objects.filter(user=request.user).values_list('quantity', flat=True)))
-
     with open(os.path.join(settings.BASE_DIR, 'contacts.json')) as contacts_json_file:
         contacts = json.load(contacts_json_file)
 
@@ -150,7 +147,18 @@ def contacts(request):
         'main': main,
         'title': title,
         'contacts': contacts,
-        'basket': basket,
-        'basket_num': basket_num,
+        'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/contacts.html', content)
+
+
+def not_found(request, exception):
+    main = False
+    title = '404'
+    products = Product.objects.all()[:4]
+    content = {
+        'main': main,
+        'title': title,
+        'products': products,
+    }
+    return render(request, 'mainapp/custom404.html', content)

@@ -12,24 +12,19 @@
         <div class="container clearfix">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <img src="/static/img/product-main1.jpg" alt="">
-                    <div class="prod-thumbs">
+                    <img src="/media/{{ product.image }}" alt="{{ product.short_desc }}">
+                    <!--<div class="prod-thumbs">
                         <a class="active" href="#"><img src="img/product-thumb1.jpg" alt=""></a>
                         <a href="#"><img src="img/product-thumb2.jpg" alt=""></a>
                         <a href="#"><img src="img/product-thumb3.jpg" alt=""></a>
                         <a href="#"><img src="img/product-thumb4.jpg" alt=""></a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <h1>Assasin’s Creed:<br><span>Rogue</span></h1>
-                    <div class="product-price">$29.99</div>
+                    <h1>{{ product.name }}</h1>
+                    <div class="product-price">${{ product.price }}</div>
                     <a class="btn" href="#">Buy</a>
-                    <p>The plot is set in a fictional history of real world events and follows the centuries-old struggle
-                        between the Assassins, who fight for peace with free will, and the Templars, who desire peace
-                        through control. The story is set in the mid-18th century during the Seven Years' War, and follows
-                        Shay Patrick Cormac, an Assassin-turned-Templar who hunts down former members of his Brotherhood
-                        after being betrayed by them. Gameplay in Rogue is very similar to that of Black Flag with a mixture
-                        of ship-based naval exploration and third-person land-based exploration with some new features.</p>
+                    <p>{{ product.description }}</p>
                 </div>
             </div>
         </div>

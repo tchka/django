@@ -27,6 +27,11 @@ class Product(models.Model):
         return f'{self.name} ({self.category.name})'
         # return f'{self.name}'
 
+class Gallery(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='Gallery')
+    is_main = models.BooleanField(default=False);
+    image = models.ImageField(upload_to='product_images', blank=True)
+
 
 class Contact(models.Model):
     name = models.CharField(max_length=64, unique=True, verbose_name='Имя')
