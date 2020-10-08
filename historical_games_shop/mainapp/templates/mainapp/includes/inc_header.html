@@ -14,7 +14,10 @@
             {% if user.is_authenticated %}
                 <a href="{% url 'auth:edit' %}" class="lk"></a>
                 <a href="{% url 'basket:basket' %}" class="basket{% if request.resolver_match.url_name == 'main' %} active{% endif %}">
-                     {% if basket %}{{basket_num}}{% endif %}
+                    {% if basket %}
+                        {{ basket.0.total_quantity }}
+                        ${{ basket.0.total_cost | floatformat:0 }}
+                    {% endif %}
                 </a>
                 <a href="{% url 'auth:logout' %}">выйти</a>
             {% else %}
