@@ -78,14 +78,18 @@
 
             <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <img src="/media/{{ hot_product.image }}" alt="{{ hot_product.short_desc }}">
-                <div class="gallery-item-title">{{ hot_product.name }}</div>
-                <a class="btn" href="{% url 'products:product' hot_product.pk %}">Buy</a>
+                <div class="gallery-item-title">
+                    <a href="{% url 'products:product' hot_product.pk %}">{{ hot_product.name }}</a>
+                </div>
+                <a class="btn" href="{% url 'basket:add' hot_product.pk %}">Buy</a>
             </div>
             {% for product in same_products %}
                 <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <img src="/media/{{ product.image }}" alt="{{ product.short_desc }}">
-                    <div class="gallery-item-title">{{ product.name }}</div>
-                    <a class="btn" href="{% url 'products:product' product.pk %}">Buy</a>
+                    <div class="gallery-item-title">
+                        <a href="{% url 'products:product' product.pk %}">{{ product.name }}</a>
+                    </div>
+                    <a class="btn" href="{% url 'basket:add' product.pk %}">Buy</a>
                 </div>
             {% endfor %}
         </div>

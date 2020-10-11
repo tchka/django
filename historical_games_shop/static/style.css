@@ -139,6 +139,19 @@ body {
     line-height: 27px;
     text-shadow: 0px 0px 10px rgba(53, 53, 53, 1);
 }
+.header .logout {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url("img/logout.png") center center /contain no-repeat;
+}
+.header .admin {
+    display: inline-block;
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
+    background: url("img/admin.png") center center /contain no-repeat;
+}
 
 /* webkit */
 ::-moz-placeholder {

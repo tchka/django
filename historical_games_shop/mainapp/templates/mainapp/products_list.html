@@ -19,13 +19,13 @@
                 {% for product in products %}
                     <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <img src="/media/{{ product.image }}" alt="">
-                        <div class="gallery-item-title"><a href="#">{{ product.name }}</a></div>
+                        <div class="gallery-item-title"><a href="{% url 'products:product' product.pk %}">{{ product.name }}</a></div>
                         <p>{{ product.description }}</p>
                         <a class="btn" href="{% url 'basket:add' product.pk %}">Buy</a>
                      </div>
                 {% endfor %}
             </div>
-            <a href="#" class="gallery-more">Show more games</a>
+            <a href="/catalog/" class="gallery-more">Show more games</a>
         </div>
     </div>
 
