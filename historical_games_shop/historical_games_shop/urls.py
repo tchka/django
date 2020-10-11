@@ -27,7 +27,8 @@ urlpatterns = [
     path('auth/', include('authapp.urls', namespace='auth')),
     path('contacts/', mainapp.contacts, name='contacts'),
     path('basket/', include('basketapp.urls', namespace='basket')),
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
+    path('admin/', include('adminapp.urls', namespace='admin')),
 ]
 
 handler404 = mainapp.not_found

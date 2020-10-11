@@ -19,7 +19,10 @@
                         ${{ basket.0.total_cost | floatformat:0 }}
                     {% endif %}
                 </a>
-                <a href="{% url 'auth:logout' %}">выйти</a>
+                {% if user.is_superuser %}
+                    <a class="admin" href="{% url 'admin:users' %}"></a>
+                {% endif %}
+                <a class="logout" href="{% url 'auth:logout' %}"></a>
             {% else %}
                  <a href="{% url 'auth:login' %}">войти</a>
             {% endif %}

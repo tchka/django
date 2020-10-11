@@ -12,14 +12,14 @@
     {% for object in objects %}
       <div class="product_record">
         <img 
-          src="/media/{{object.image|default:'products_images/default.jpg'}}"
+          src="/media/{{object.image|default:'products/default.jpg'}}"
           alt="{{ object.name }}">
         <div class="product_name">
           {{ object.name|title }}
         </div>
         <div class="product_actions">
           <button>
-            <a href={% url 'admin:product_read' object.pk %}>
+            <a href={% url 'admin:product' object.pk %}>
               подробнее
             </a>
           </button>

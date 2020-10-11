@@ -1,0 +1,24 @@
+.user_record,
+.product_record,
+.category_record {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.user_record img,
+.product_record img,
+.category_record img {
+  margin-right: 20px;
+  max-width: 100px;
+}
+.user_record > div,
+.product_record > div,
+.category_record > div {
+  padding: 20px;
+}
+.menu li a.active {
+  color: #000;
+}
+.not_active {
+  opacity: 0.5
+}

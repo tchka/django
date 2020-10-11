@@ -23,7 +23,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <h1>{{ product.name }}</h1>
                     <div class="product-price">${{ product.price }}</div>
-                    <a class="btn" href="#">Buy</a>
+                    <a class="btn" href="{% url 'products:product' product.pk %}">Buy</a>
                     <p>{{ product.description }}</p>
                 </div>
             </div>
@@ -33,26 +33,15 @@
         <h2>Similar games</h2>
         <div class="gallery-list container">
             <div class="row">
-                <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <img src="/static/img/gallery5.jpg" alt="">
-                    <div class="gallery-item-title"><span>Battlefield 1</span></div>
-                    <a class="btn" href="#">Buy</a>
-                </div>
-                <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <img src="/static/img/gallery6.jpg" alt="">
-                    <div class="gallery-item-title"><span>star wars:</span><br>Battlefront II</div>
-                    <a class="btn" href="#">Buy</a>
-                </div>
-                <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <img src="/static/img/gallery7.jpg" alt="">
-                    <div class="gallery-item-title"><span>BATTLEFIELD 4</span></div>
-                    <a class="btn" href="#">Buy</a>
-                </div>
-                <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <img src="/static/img/gallery8.jpg" alt="">
-                    <div class="gallery-item-title"><span>world of tanks</span></div>
-                    <a class="btn" href="#">Buy</a>
-                </div>
+                {% for similar_product in same_products %}
+                    <div class="gallery-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <img src="/media/{{ similar_product.image }}" alt="">
+                        <div class="gallery-item-title">
+                            <a href="{% url 'products:product' similar_product.pk %}">{{ similar_product.name }}</a>
+                        </div>
+                        <a class="btn" href="{% url 'products:product' similar_product.pk %}">Buy</a>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

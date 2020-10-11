@@ -89,11 +89,13 @@ def main(request):
 def catalog(request):
     main = False
     title = 'Catalog Historical games'
+    products = Product.objects.all()
     with open(os.path.join(settings.BASE_DIR, 'contacts.json')) as contacts_json_file:
         contacts = json.load(contacts_json_file)
     content = {
         'main': main,
         'title': title,
+        'products': products,
         'contacts': contacts,
         'basket': get_basket(request.user),
     }
@@ -127,11 +129,13 @@ def product(request, pk=None):
     main = False
     title = 'Product Historical games'
     product = get_object_or_404(Product, pk=pk)
+    same_products = get_same_products(product)
 
     content = {
         'main': main,
         'title': title,
         'product': product,
+        'same_products': same_products,
         'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/product.html', content)
