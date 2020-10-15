@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from django.conf import settings
 from django.shortcuts import get_object_or_404
@@ -102,24 +103,36 @@ def catalog(request):
     return render(request, 'mainapp/catalog.html', content)
 
 
-def category_products(request, pk=None):
+def category_products(request, pk=None, page=1, item_count = 2):
     main = False
     title = 'Product Historical games'
-    links_menu = ProductCategory.objects.all()
+    links_menu = ProductCategory.objects.filter(is_active=True)
     if pk is not None:
         if pk == 0:
-            category = {'name': 'all'}
-            products = Product.objects.all().order_by('price')
+            category = {
+                'pk': 0,
+                'name': 'all',
+            }
+            products = Product.objects.filter(is_active=True, category__is_active=True).order_by('price')
         else:
             category = get_object_or_404(ProductCategory, pk=pk)
-            products = Product.objects.filter(category__pk=pk).order_by('price')
+            products = Product.objects.filter(category__pk=pk, is_active=True, category__is_active=True).order_by('price')
+
+    paginator = Paginator(products, item_count)
+
+    try:
+        products_paginator = paginator.page(page)
+    except PageNotAnInteger:
+        products_paginator = paginator.page(1)
+    except EmptyPage:
+        products_paginator = paginator.page(paginator.num_pages)
 
     content = {
         'main': main,
         'title': title,
         'links_menu': links_menu,
         'category': category,
-        'products': products,
+        'products': products_paginator,
         'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/products_list.html', content)
