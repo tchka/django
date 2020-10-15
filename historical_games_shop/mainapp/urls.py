@@ -25,4 +25,5 @@ urlpatterns = [
    path('<int:pk>/', mainapp.product, name='product'),
    path('category/', mainapp.catalog, name='catalog'),
    path('category/<int:pk>/', mainapp.category_products, name='category_products'),
+   path('category/<int:pk>/<page>/', mainapp.category_products, name='page'),
 ]
