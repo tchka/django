@@ -82,7 +82,6 @@ def main(request):
         'links_menu': links_menu,
         'services': services,
         'contacts': contacts,
-        'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/index.html', content)
 
@@ -98,7 +97,6 @@ def catalog(request):
         'title': title,
         'products': products,
         'contacts': contacts,
-        'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/catalog.html', content)
 
@@ -133,7 +131,6 @@ def category_products(request, pk=None, page=1, item_count = 2):
         'links_menu': links_menu,
         'category': category,
         'products': products_paginator,
-        'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/products_list.html', content)
 
@@ -149,7 +146,6 @@ def product(request, pk=None):
         'title': title,
         'product': product,
         'same_products': same_products,
-        'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/product.html', content)
 
@@ -164,7 +160,6 @@ def contacts(request):
         'main': main,
         'title': title,
         'contacts': contacts,
-        'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/contacts.html', content)
 

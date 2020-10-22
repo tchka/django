@@ -1,4 +1,5 @@
-from django.views.generic.list import ListView, CreateView, UpdateView
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import user_passes_test
 from django.http import HttpResponseRedirect
@@ -15,6 +16,7 @@ from mainapp.models import Product, ProductCategory
 class UsersListView(ListView):
     model = ShopUser
     template_name = 'adminapp/users.html'
+    # paginate_by = 2
 
     @method_decorator(user_passes_test(lambda u: u.is_superuser))
     def dispatch(self, *args, **kwargs):
