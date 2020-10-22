@@ -1,0 +1,14 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?b?0J/QvtC00YLQstC10YDQttC00LXQvdC40LUg0YPRh9C10YLQvdC+0Lkg0LfQsNC/?=
+ =?utf-8?b?0LjRgdC4IGRvZTEx?=
+From: django@historical_games_shop.local
+To: mary11@gmail.com
+Date: Thu, 22 Oct 2020 06:41:15 -0000
+Message-ID: <160334887501.187248.14963333329238915039@argamak>
+
+Для подтверждения учетной записи doe11 на портале http://localhost:8000 перейдите по ссылке: 
+http://localhost:8000/auth/verify/mary11@gmail.com/5e719d5adf113069c876d3671147ed04e8f246d0
+-------------------------------------------------------------------------------
