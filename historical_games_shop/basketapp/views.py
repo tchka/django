@@ -35,8 +35,8 @@ def basket_add(request, pk):  # product__pk
     basket_item = Basket.objects.filter(user=request.user, product=product_item)
     if not basket_item.exists():
         basket_item = Basket(user=request.user, product=product_item)
-
-    basket_item = basket_item[:1]
+    else:
+        basket_item = basket_item[:1]
 
 
     basket_item.quantity += 1

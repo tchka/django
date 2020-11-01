@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'authapp',
     'basketapp',
     'adminapp',
+    'orderapp',
     'social_django',
 ]
 

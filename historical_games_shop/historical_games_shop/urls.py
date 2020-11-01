@@ -30,6 +30,7 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('admin/', include('adminapp.urls', namespace='admin')),
     path('', include('social_django.urls', namespace='social')),
+    path('order/', include('orderapp.urls', namespace='order')),
 ]
 
 handler404 = mainapp.not_found
