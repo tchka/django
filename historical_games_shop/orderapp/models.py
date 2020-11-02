@@ -54,10 +54,29 @@ class Order(models.Model):
         self.is_active = False
         self.save()
 
+# class OrderItemsQuerySet(models.QuerySet):
+#
+#     def delete(self, *args, **kwargs):
+#         for object in self:
+#             object.product.quantity += object.quantity
+#             object.product.save()
+#
+#         super(OrderItemsQuerySet, self).delete(*args, **karwgs)
+
 class OrderItems(models.Model):
+    # objects = OrderItemsQuerySet.as_manager()
+
     order = models.ForeignKey(Order, related_name='orderitems', on_delete=models.CASCADE, verbose_name='заказ')
     product = models.ForeignKey(Product, verbose_name='продукт', on_delete=models.CASCADE)
     quantity = models.PositiveSmallIntegerField(verbose_name='количество', default=0)
 
+    @staticmethod
+    def get_item(pk):
+        return OrderItems.objects.get(pk=pk)
+
     def get_product_cost(self):
         return self.quantity * self.product.price
+
+    # def delete(self):
+    #     self.product.quantity += self.quantity
+    #     self.product.save()

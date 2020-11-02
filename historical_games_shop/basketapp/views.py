@@ -32,15 +32,16 @@ def basket_add(request, pk):  # product__pk
     # if not basket_item:
     #     basket_item = Basket(user=request.user, product=product_item)
 
-    basket_item = Basket.objects.filter(user=request.user, product=product_item)
-    if not basket_item.exists():
-        basket_item = Basket(user=request.user, product=product_item)
+    old_basket_item = Basket.objects.filter(user=request.user, product=product_item)
+
+    if old_basket_item:
+        old_basket_item[0].quantity += 1
+        old_basket_item[0].save(update_fields=['quantity', 'product'])
+
     else:
-        basket_item = basket_item[:1]
-
-
-    basket_item.quantity += 1
-    basket_item.save()
+        new_basket_item = Basket(user=request.user, product=product_item)
+        new_basket_item.quantity += 1
+        new_basket_item.save()
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
@@ -70,3 +71,4 @@ def edit(request, pk, quantity):
     }
     result = render_to_string('basketapp/includes/inc_basket_list.html', content)
     return JsonResponse({'result': result})
+
