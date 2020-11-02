@@ -45,17 +45,20 @@ def save_user_profile(backend, user, response, *args, **kwargs):
             user.delete()
             raise AuthForbidden('social_core.backends.vk.VKOAuth2')
 
+    # if data['photo_200_orig']:
+    #     fname = data['photo_200_orig'].split('/')[-1]
+    #     fname = fname.split('?')[0]
+    #     fpath =  os.path.join(settings.BASE_DIR, 'media/' + fname)
+    #     f = open(fpath, 'wb')
+    #     fcontent =  urllib.request.urlopen(data['photo_200_orig']).read()
+    #     f.write(fcontent)
+    #     f.close()
+    #     user.avatar = fname
+
     if data['photo_200_orig']:
-        fname = data['photo_200_orig'].split('/')[-1]
-        fname = fname.split('?')[0]
-        fpath =  os.path.join(settings.BASE_DIR, 'media/' + fname)
-        f = open(fpath, 'wb')
-        fcontent =  urllib.request.urlopen(data['photo_200_orig']).read()
-        f.write(fcontent)
-        f.close()
-        user.avatar = fname
-
-
+        print(data['photo_200_orig'])
+        urllib.request.urlretrieve(data['photo_200_orig'], f'{settings.MEDIA_ROOT}/user_avatars/{user.pk}.jpg')
+        user.avatar = f'user_avatars/{user.pk}.jpg'
 
 
     user.save()
