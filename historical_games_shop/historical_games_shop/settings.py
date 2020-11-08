@@ -26,7 +26,7 @@ SECRET_KEY = 'z3_+8(vgucvw21mlsihlhp950kc!l)x!=k_u#in-5rns+)z47$'
 #
 ALLOWED_HOSTS = ['*']
 
-DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = []
 
@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'adminapp',
     'orderapp',
     'social_django',
+    'debug_toolbar',
+    'template_profiler_panel',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +58,34 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
+
+if DEBUG:
+   def show_toolbar(request):
+       return True
+
+   DEBUG_TOOLBAR_CONFIG = {
+       'SHOW_TOOLBAR_CALLBACK': show_toolbar,
+   }
+
+   DEBUG_TOOLBAR_PANELS = [
+       'debug_toolbar.panels.versions.VersionsPanel',
+       'debug_toolbar.panels.timer.TimerPanel',
+       'debug_toolbar.panels.settings.SettingsPanel',
+       'debug_toolbar.panels.headers.HeadersPanel',
+       'debug_toolbar.panels.request.RequestPanel',
+       'debug_toolbar.panels.sql.SQLPanel',
+       'debug_toolbar.panels.templates.TemplatesPanel',
+       'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+       'debug_toolbar.panels.cache.CachePanel',
+       'debug_toolbar.panels.signals.SignalsPanel',
+       'debug_toolbar.panels.logging.LoggingPanel',
+       'debug_toolbar.panels.redirects.RedirectsPanel',
+       'debug_toolbar.panels.profiling.ProfilingPanel',
+       'template_profiler_panel.panels.template.TemplateProfilerPanel',
+   ]
+
 
 ROOT_URLCONF = 'historical_games_shop.urls'
 

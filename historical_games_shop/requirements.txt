@@ -10,6 +10,8 @@ decorator==4.4.2
 defusedxml==0.7.0rc1
 distlib==0.3.1
 Django==2.2
+django-debug-toolbar==3.1.1
+django-debug-toolbar-template-profiler==2.0.1
 filelock==3.0.12
 graphics.py==5.0.1.post1
 idna==2.10
@@ -22,6 +24,7 @@ pickleshare==0.7.5
 Pillow==7.2.0
 prompt-toolkit==3.0.5
 psutil==5.6.7
+psycopg2==2.8.6
 pycparser==2.20
 Pygments==2.6.1
 PyJWT==1.7.1
@@ -37,3 +40,4 @@ traitlets==4.3.3
 urllib3==1.25.11
 virtualenv==20.0.35
 wcwidth==0.1.9
+wrapt==1.12.1
