@@ -251,6 +251,7 @@ html, body {
 }
 
 .categories_list {
+    clear: both;
     margin-left: 150px;
 }
 
@@ -272,7 +273,6 @@ html, body {
 }
 
 .category_record {
-    height: 125px;
     margin: 15px auto;
     position: relative;
 }
@@ -295,7 +295,7 @@ html, body {
     float: left;
     margin-top: 0px;
     margin-left: 25px;
-    width: 175px;
+    width: 255px;
 }
 
 .category_record .category_desc {
@@ -706,13 +706,6 @@ html, body {
 	position: relative;
 }
 
-.logo {
-	background-image: url(/static/img/logo.png);
-	margin-top: 63px;
-	width: 185px;
-	height: 22px;
-	float: left;
-}
 
 .menu {
 	list-style-type: none;

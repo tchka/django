@@ -29,6 +29,11 @@ class Product(models.Model):
         return f'{self.name} ({self.category.name})'
         # return f'{self.name}'
 
+    @staticmethod
+    def get_items():
+        return Product.objects.filter(is_active=True).order_by('category', 'name')
+
+
 class Gallery(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='Gallery')
     is_main = models.BooleanField(default=False);
