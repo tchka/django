@@ -90,7 +90,8 @@ def catalog(request):
     main = False
     title = 'Catalog Historical games'
     products = Product.objects.all()
-    with open(os.path.join(settings.BASE_DIR, 'contacts.json')) as contacts_json_file:
+
+    with open(os.path.join(settings.BASE_DIR, 'contacts.json'), 'r', errors='ignore') as contacts_json_file:
         contacts = json.load(contacts_json_file)
     content = {
         'main': main,
