@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.db.models.signals import pre_save, pre_delete
 from django.dispatch import receiver
@@ -5,6 +6,7 @@ from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy, reverse
+from django.utils.decorators import method_decorator
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 
 from orderapp.models import Order, OrderItems
@@ -21,6 +23,11 @@ class OrderList(ListView):
 
     def get_queryset(self):
         return Order.objects.filter(user=self.request.user)
+
+    @method_decorator(login_required())
+    def dispatch(self, *args, **kwargs):
+        return super(ListView, self).dispatch(*args, **kwargs)
+
 
 
 class OrderItemsCreate(CreateView):
@@ -69,6 +76,11 @@ class OrderItemsCreate(CreateView):
 
         return super(OrderItemsCreate, self).form_valid(form)
 
+    @method_decorator(login_required())
+    def dispatch(self, *args, **kwargs):
+        return super(CreateView, self).dispatch(*args, **kwargs)
+
+
 
 class OrderItemsUpdate(UpdateView):
 
@@ -106,6 +118,10 @@ class OrderItemsUpdate(UpdateView):
 
         return super(OrderItemsUpdate, self).form_valid(form)
 
+    @method_decorator(login_required())
+    def dispatch(self, *args, **kwargs):
+        return super(UpdateView, self).dispatch(*args, **kwargs)
+
 
 class OrderDelete(DeleteView):
     model = Order
@@ -119,6 +135,10 @@ class OrderRead(DetailView):
         context = super(OrderRead, self).get_context_data(**kwargs)
         context['title'] = 'заказ/просмотр'
         return context
+
+    @method_decorator(login_required())
+    def dispatch(self, *args, **kwargs):
+        return super(DetailView, self).dispatch(*args, **kwargs)
 
 def order_forming_complete(request, pk):
    order = get_object_or_404(Order, pk=pk)

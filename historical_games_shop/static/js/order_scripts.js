@@ -62,7 +62,7 @@ window.onload = function () {
         removed: deleteOrderItem
     });
 
-    $('.order_form select').change(function (e) {
+    $('.order_form').on('сhange', 'select', function (e) {
         console.log($(this).val());
         var pk = $(this).val();
 

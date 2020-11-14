@@ -18,14 +18,14 @@ def get_basket(user):
 
 
 def get_hot_product():
-    products = Product.objects.all()
+    products = Product.objects.filter(is_active=True, category__is_active=True).select_related('category')
 
     return random.sample(list(products), 1)[0]
 
 
 def get_same_products(hot_product):
     same_products = Product.objects.filter(category=hot_product.category). \
-                        exclude(pk=hot_product.pk)[:3]
+                        exclude(pk=hot_product.pk).select_related('category')[:3]
 
     return same_products
 
@@ -90,7 +90,8 @@ def catalog(request):
     main = False
     title = 'Catalog Historical games'
     products = Product.objects.all()
-    with open(os.path.join(settings.BASE_DIR, 'contacts.json')) as contacts_json_file:
+
+    with open(os.path.join(settings.BASE_DIR, 'contacts.json'), 'r', errors='ignore') as contacts_json_file:
         contacts = json.load(contacts_json_file)
     content = {
         'main': main,
