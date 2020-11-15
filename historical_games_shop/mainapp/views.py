@@ -91,7 +91,7 @@ def get_basket(user):
 
 
 def get_hot_product():
-    products = Product.objects.filter(is_active=True, category__is_active=True).select_related('category')
+    products = get_products()
 
     return random.sample(list(products), 1)[0]
 
@@ -162,7 +162,7 @@ def main(request):
 def catalog(request):
     main = False
     title = 'Catalog Historical games'
-    products = Product.objects.all()
+    products = get_products()
 
     with open(os.path.join(settings.BASE_DIR, 'contacts.json'), 'r', errors='ignore') as contacts_json_file:
         contacts = json.load(contacts_json_file)
@@ -185,11 +185,10 @@ def category_products(request, pk=None, page=1, item_count=2):
                 'pk': 0,
                 'name': 'all',
             }
-            products = Product.objects.filter(is_active=True, category__is_active=True).order_by('price')
+            products = get_products_orederd_by_price()
         else:
-            category = get_object_or_404(ProductCategory, pk=pk)
-            products = Product.objects.filter(category__pk=pk, is_active=True, category__is_active=True).order_by(
-                'price')
+            category = get_category(pk)
+            products = get_products_in_category_orederd_by_price(pk)
 
     paginator = Paginator(products, item_count)
 
@@ -213,7 +212,7 @@ def category_products(request, pk=None, page=1, item_count=2):
 def product(request, pk=None):
     main = False
     title = 'Product Historical games'
-    product = get_object_or_404(Product, pk=pk)
+    product = get_product(pk)
     same_products = get_same_products(product)
 
     content = {
