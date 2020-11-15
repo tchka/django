@@ -6,6 +6,8 @@ from django.core.cache import cache
 import os
 import json
 import random
+
+from django.views.decorators.cache import cache_page
 from mainapp.models import Product
 from mainapp.models import ProductCategory
 from basketapp.models import Basket
@@ -208,7 +210,7 @@ def category_products(request, pk=None, page=1, item_count=2):
     }
     return render(request, 'mainapp/products_list.html', content)
 
-
+@cache_page(3600)
 def product(request, pk=None):
     main = False
     title = 'Product Historical games'
