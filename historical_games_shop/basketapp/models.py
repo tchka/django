@@ -1,3 +1,4 @@
+from distlib.util import cached_property
 from django.db import models
 from django.conf import settings
 from django.shortcuts import get_object_or_404
@@ -35,19 +36,17 @@ class Basket(models.Model):
         "return cost of all products this type"
         return self.product.price * self.quantity
 
-    @property
-    def total_quantity(self):
-        "return total quantity for user"
-        _items = Basket.objects.filter(user=self.user)
-        _totalquantity = sum(list(map(lambda x: x.quantity, _items)))
-        return _totalquantity
+    @cached_property
+    def get_items_cached(self):
+        return self.user.basket.select_related()
 
-    @property
-    def total_cost(self):
-        "return total cost for user"
-        _items = Basket.objects.filter(user=self.user)
-        _totalcost = sum(list(map(lambda x: x.product_cost, _items)))
-        return _totalcost
+    def get_total_quantity(self):
+        _items = self.get_items_cached
+        return sum(list(map(lambda x: x.quantity, _items)))
+
+    def get_total_cost(self):
+        _items = self.get_items_cached
+        return sum(list(map(lambda x: x.product_cost, _items)))
 
     # def delete(self):
     #     self.product.quantity += self.quantity
